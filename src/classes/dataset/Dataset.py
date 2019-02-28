@@ -66,7 +66,7 @@ class Dataset:
         img_features, text_features = Dataset.load_data(data_input_path)
         total_sequences = 0
         for text_set in text_features: total_sequences += len(text_set.split())
-        steps_per_epoch = total_sequences // BATCH_SIZE
+        steps_per_epoch = total_sequences /BATCH_SIZE
         tokenizer, vocab_size = Dataset.load_vocab()
         data_gen = Dataset.data_generator(text_features, img_features, max_sequences, tokenizer, vocab_size)
         return data_gen, steps_per_epoch
